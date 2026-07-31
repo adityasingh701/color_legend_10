@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Color Legend 100</title>
+
+    <meta
+        name="theme-color"
+        content="#5d2eff">
+
+    <meta
+        name="description"
+        content="Color Legend 100 - Find the Different Color Tile">
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+<!-- ===========================
+        APP CONTAINER
+=========================== -->
+
+<div class="app">
+
+<!-- ===========================
+        TOP HEADER
+=========================== -->
+
+<header class="topbar">
+
+    <div class="top-left">
+
+        <div class="logo-icon">
+            🎨
+        </div>
+
+        <div class="logo-text">
+
+            <h1>
+                Color Legend
+            </h1>
+
+            <span>
+                100 Levels Challenge
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="top-right">
+
+        <div class="status-box">
+
+            <span class="status-icon">
+                🏆
+            </span>
+
+            <div>
+
+                <small>
+                    Level
+                </small>
+
+                <b id="currentLevel">
+                    1
+                </b>
+
+            </div>
+
+        </div>
+
+        <div class="status-box">
+
+            <span class="status-icon">
+                ❤️
+            </span>
+
+            <div>
+
+                <small>
+                    Lives
+                </small>
+
+                <b id="lives">
+                    5
+                </b>
+
+            </div>
+
+        </div>
+
+        <div class="status-box">
+
+            <span class="status-icon">
+                🪙
+            </span>
+
+            <div>
+
+                <small>
+                    Coins
+                </small>
+
+                <b id="coins">
+                    200
+                </b>
+
+            </div>
+
+        </div>
+
+        <div class="status-box">
+
+            <span class="status-icon">
+                ⭐
+            </span>
+
+            <div>
+
+                <small>
+                    Rank
+                </small>
+
+                <b id="rank">
+                    Beginner
+                </b>
+
+            </div>
+
+        </div>
+
+        <div class="status-box">
+
+            <span class="status-icon">
+                ⏱
+            </span>
+
+            <div>
+
+                <small>
+                    Time
+                </small>
+
+                <b id="timer">
+                    00:00
+                </b>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ===========================
+        HOME PAGE
+=========================== -->
+
+<section
+    id="homePage"
+    class="page">
+
+    <div class="hero">
+
+        <h2>
+            Train Your Eyes
+        </h2>
+
+        <h1>
+            Find The Different Color
+        </h1>
+
+        <p>
+
+            Complete all 100 levels,
+            improve your observation
+            skills and become a
+            true Color Legend.
+
+        </p>
+
+    </div>
+
+    <div class="home-buttons">
+
+        <button
+            class="main-btn play-btn"
+            onclick="continueGame()">
+
+            ▶ Continue
+
+        </button>
+
+        <button
+            class="main-btn"
+            onclick="openLevels()">
+
+            📚 Levels
+
+        </button>
+
+        <button
+            class="main-btn"
+            onclick="openShop()">
+
+            🪙 Coin Shop
+
+        </button>
+
+        <button
+            class="main-btn"
+            onclick="claimDailyReward()">
+
+            🎁 Daily Reward
+
+        </button>
+
+        <button
+            class="main-btn"
+            onclick="location.href='contact.html'">
+
+            📧 Contact
+
+        </button>
+
+    </div>
+
+    <div class="dashboard">
+
+        <div class="info-card">
+
+            <h3>
+                Highest Level
+            </h3>
+
+            <h2 id="highestLevel">
+                1
+            </h2>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>
+                Achievement
+            </h3>
+
+            <h2>
+
+                Beginner
+
+            </h2>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>
+                Total Levels
+            </h3>
+
+            <h2>
+
+                100
+
+            </h2>
+
+        </div>
+
+    </div>
+
+      <!-- ===========================
+            GAME PAGE
+    =========================== -->
+
+    <section
+        id="gamePage"
+        class="page hidden">
+
+        <!-- Top Controls -->
+
+        <div class="game-header">
+
+            <button
+                class="circle-btn"
+                onclick="goHome()">
+
+                🏠
+
+            </button>
+
+            <div class="game-level">
+
+                <span>
+                    Current Level
+                </span>
+
+                <h2 id="levelTitle">
+
+                    Level 1
+
+                </h2>
+
+            </div>
+
+            <button
+                class="circle-btn"
+                onclick="restartLevel()">
+
+                🔄
+
+            </button>
+
+        </div>
+
+        <!-- Progress -->
+
+        <div class="progress-area">
+
+            <div class="progress-text">
+
+                <span>
+                    Progress
+                </span>
+
+                <span id="progressPercent">
+
+                    0%
+
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    id="progressFill"
+                    class="progress-fill">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Game Information -->
+
+        <div class="game-info">
+
+            <div class="info-box">
+
+                <span>
+                    ❤️ Lives
+                </span>
+
+                <strong id="gameLives">
+
+                    5
+
+                </strong>
+
+            </div>
+
+            <div class="info-box">
+
+                <span>
+                    🪙 Coins
+                </span>
+
+                <strong id="gameCoins">
+
+                    200
+
+                </strong>
+
+            </div>
+
+            <div class="info-box">
+
+                <span>
+                    ⏱ Time
+                </span>
+
+                <strong id="gameTimer">
+
+                    00:00
+
+                </strong>
+
+            </div>
+
+        </div>
+
+        <!-- Main Grid -->
+
+        <div class="grid-wrapper">
+
+            <div id="grid">
+
+            </div>
+
+        </div>
+
+        <!-- Bottom Buttons -->
+
+        <div class="game-buttons">
+
+            <button
+                class="game-btn"
+                onclick="useHint()">
+
+                💡 Hint
+
+            </button>
+
+            <button
+                class="game-btn"
+                onclick="pauseGame()">
+
+                ⏸ Pause
+
+            </button>
+
+            <button
+                class="game-btn"
+                onclick="restartLevel()">
+
+                🔄 Restart
+
+            </button>
+
+        </div>
+
+        <!-- Hint Counter -->
+
+        <div class="hint-area">
+
+            <span>
+
+                Available Hints :
+
+            </span>
+
+            <strong id="hintCount">
+
+                3
+
+            </strong>
+
+        </div>
+
+    </section>
+
+      <!-- ===========================
+            LEVELS PAGE
+    =========================== -->
+
+    <section
+        id="levelsPage"
+        class="page hidden">
+
+        <div class="page-header">
+
+            <button
+                class="circle-btn"
+                onclick="goHome()">
+
+                🏠
+
+            </button>
+
+            <div>
+
+                <h2>
+
+                    Select Level
+
+                </h2>
+
+                <p>
+
+                    Complete previous levels to unlock new ones.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Progress Summary -->
+
+        <div class="level-summary">
+
+            <div class="summary-card">
+
+                <span>
+
+                    Completed
+
+                </span>
+
+                <strong id="completedLevels">
+
+                    0 / 100
+
+                </strong>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>
+
+                    Highest
+
+                </span>
+
+                <strong id="highestLevelText">
+
+                    1
+
+                </strong>
+
+            </div>
+
+            <div class="summary-card">
+
+                <span>
+
+                    Rank
+
+                </span>
+
+                <strong id="rankText">
+
+                    Beginner
+
+                </strong>
+
+            </div>
+
+        </div>
+
+        <!-- Level Grid -->
+
+        <div
+            id="levelGrid"
+            class="level-grid">
+
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- ===========================
+            SHOP PAGE
+    =========================== -->
+
+    <section
+        id="shopPage"
+        class="page hidden">
+
+        <div class="page-header">
+
+            <button
+                class="circle-btn"
+                onclick="goHome()">
+
+                🏠
+
+            </button>
+
+            <div>
+
+                <h2>
+
+                    Coin Shop
+
+                </h2>
+
+                <p>
+
+                    Buy coins, redeem codes and refill your lives.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Player Wallet -->
+
+        <div class="wallet-card">
+
+            <div>
+
+                <span>
+
+                    Current Coins
+
+                </span>
+
+                <h2 id="walletCoins">
+
+                    200
+
+                </h2>
+
+            </div>
+
+            <div>
+
+                🪙
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Coin Packs -->
+
+        <div class="shop-grid">
+
+            <div class="shop-card">
+
+                <h3>
+
+                    Starter Pack
+
+                </h3>
+
+                <h1>
+
+                    50 🪙
+
+                </h1>
+
+                <p>
+
+                    ₹5
+
+                </p>
+
+                <button
+                    class="shop-btn">
+
+                    Buy
+
+                </button>
+
+            </div>
+
+
+
+            <div class="shop-card">
+
+                <h3>
+
+                    Popular Pack
+
+                </h3>
+
+                <h1>
+
+                    150 🪙
+
+                </h1>
+
+                <p>
+
+                    ₹15
+
+                </p>
+
+                <button
+                    class="shop-btn">
+
+                    Buy
+
+                </button>
+
+            </div>
+
+
+
+            <div class="shop-card">
+
+                <h3>
+
+                    Mega Pack
+
+                </h3>
+
+                <h1>
+
+                    500 🪙
+
+                </h1>
+
+                <p>
+
+                    ₹45
+
+                </p>
+
+                <button
+                    class="shop-btn">
+
+                    Buy
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Redeem -->
+
+        <div class="redeem-card">
+
+            <h3>
+
+                Redeem Gift Code
+
+            </h3>
+
+            <input
+                id="redeemInput"
+                type="text"
+                placeholder="Enter Redeem Code">
+
+            <button
+                class="main-btn"
+                onclick="redeemCode()">
+
+                Redeem
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Buy Life -->
+
+        <div class="life-card">
+
+            <h3>
+
+                Extra Life
+
+            </h3>
+
+            <p>
+
+                Spend 20 coins to get one extra life.
+
+            </p>
+
+            <button
+                class="main-btn"
+                onclick="buyLife()">
+
+                ❤️ Buy Life
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Contact -->
+
+        <div class="payment-card">
+
+            <h3>
+
+                Need More Coins?
+
+            </h3>
+
+            <p>
+
+                Contact us for payment details and premium packs.
+
+            </p>
+
+            <button
+                class="main-btn"
+                onclick="location.href='contacts.html'">
+
+                Contact
+
+            </button>
+
+        </div>
+
+    </section>
+
+      <!-- ===========================
+            TROPHY PAGE
+    =========================== -->
+
+    <section
+        id="trophyPage"
+        class="page hidden">
+
+        <div class="trophy-container">
+
+            <div class="trophy-icon">
+
+                👑
+
+            </div>
+
+            <h1>
+
+                Congratulations!
+
+            </h1>
+
+            <h2>
+
+                You Are A Color Legend
+
+            </h2>
+
+            <p>
+
+                Amazing!
+                You have successfully completed
+                all 100 levels and proved your
+                observation skills.
+
+            </p>
+
+            <div class="reward-box">
+
+                <span>
+
+                    Reward
+
+                </span>
+
+                <h2>
+
+                    ₹50
+
+                </h2>
+
+                <p>
+
+                    Contact us to claim your reward.
+
+                </p>
+
+            </div>
+
+            <button
+                class="main-btn"
+                onclick="goHome()">
+
+                🏠 Home
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===========================
+            DAILY REWARD POPUP
+    =========================== -->
+
+    <div
+        id="dailyRewardPopup"
+        class="popup hidden">
+
+        <div class="popup-card">
+
+            <div class="popup-icon">
+
+                🎁
+
+            </div>
+
+            <h2>
+
+                Daily Reward
+
+            </h2>
+
+            <p>
+
+                Congratulations!
+
+            </p>
+
+            <h1>
+
+                +50 Coins
+
+            </h1>
+
+            <button
+                class="main-btn"
+                onclick="closeDailyReward()">
+
+                Collect
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+            LEVEL COMPLETE POPUP
+    =========================== -->
+
+    <div
+        id="winPopup"
+        class="popup hidden">
+
+        <div class="popup-card">
+
+            <div class="popup-icon">
+
+                🎉
+
+            </div>
+
+            <h2>
+
+                Level Complete
+
+            </h2>
+
+            <p>
+
+                Excellent!
+                You found the correct color.
+
+            </p>
+
+            <button
+                class="main-btn"
+                onclick="nextLevel()">
+
+                Next Level
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+            GAME OVER POPUP
+    =========================== -->
+
+    <div
+        id="losePopup"
+        class="popup hidden">
+
+        <div class="popup-card">
+
+            <div class="popup-icon">
+
+                💔
+
+            </div>
+
+            <h2>
+
+                Game Over
+
+            </h2>
+
+            <p>
+
+                You don't have enough lives.
+
+            </p>
+
+            <button
+                class="main-btn"
+                onclick="restartLevel()">
+
+                Try Again
+
+            </button>
+
+            <button
+                class="main-btn"
+                onclick="openShop()">
+
+                Buy Life
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+            PAUSE POPUP
+    =========================== -->
+
+    <div
+        id="pausePopup"
+        class="popup hidden">
+
+        <div class="popup-card">
+
+            <h2>
+
+                Game Paused
+
+            </h2>
+
+            <button
+                class="main-btn"
+                onclick="resumeGame()">
+
+                ▶ Resume
+
+            </button>
+
+            <button
+                class="main-btn"
+                onclick="restartLevel()">
+
+                🔄 Restart
+
+            </button>
+
+            <button
+                class="main-btn"
+                onclick="goHome()">
+
+                🏠 Home
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===========================
+            SETTINGS PANEL
+    =========================== -->
+
+    <div
+        id="settingsPopup"
+        class="popup hidden">
+
+        <div class="popup-card">
+
+            <h2>
+
+                Settings
+
+            </h2>
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="musicToggle">
+
+                Background Music
+
+            </label>
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="soundToggle">
+
+                Sound Effects
+
+            </label>
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="vibrationToggle">
+
+                Vibration
+
+            </label>
+
+            <button
+                class="main-btn"
+                onclick="closeSettings()">
+
+                Done
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<!-- ===========================
+        JAVASCRIPT
+=========================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
